@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-:root{
+:root {
   font-size: 16px;
 }
 
@@ -20,12 +20,32 @@
   background-color: #9e9ea0;
 }
 
-@keyframes entering{
-  from{
+@keyframes totheleft {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes entering {
+  from {
     opacity: 0;
     transform: translateY(-200px);
   }
-  to{
+  50%{
+    opacity: 0;
+  }
+  75%{
+    opacity: 0.5;
+  }
+  to {
     opacity: 1;
     transform: translateY(0);
   }
@@ -48,7 +68,8 @@ nav {
   grid-area: timeline;
 
   overflow-y: scroll;
-  animation: entering 4s ease-in-out;
+
+  animation: entering 6s ease-in-out;
 }
 
 .memory {
@@ -96,7 +117,7 @@ nav {
   line-height: 28px;
 }
 
-.closure{
+.closure {
   text-align: justify;
 
   font-size: 1.2rem;
@@ -104,9 +125,9 @@ nav {
   line-height: 28px;
 }
 
-.psalm{
+.psalm {
   text-align: center;
-  
+
   font-size: 1rem;
   color: #9e9ea0;
   line-height: 20px;
@@ -128,8 +149,8 @@ aside {
   background-repeat: no-repeat;
 }
 
-aside *{
-  animation: entering 4s ease-in-out;
+aside * {
+  animation: totheleft 3s ease-in-out;
 }
 
 aside img:nth-child(2) {
@@ -153,26 +174,26 @@ aside span {
   color: #9e9ea0;
 }
 
-@media (max-width: 768px){ 
-  :root{
+@media (max-width: 768px) {
+  :root {
     font-size: 14px;
   }
 
-  body{
+  body {
     grid-template-columns: 1fr;
     grid-template-rows: 0.2fr 0.8fr;
-    grid-template-areas: 
-    "profile"
-    "timeline";
+    grid-template-areas:
+      "profile"
+      "timeline";
     object-fit: center;
   }
 
-  aside{
+  aside {
     border-right: none;
     padding: 32px 12px;
   }
 
-  nav{
+  nav {
     overflow-y: auto;
   }
 }
